@@ -1,0 +1,38 @@
+{
+  "name": "capco-frontend",
+  "scripts": {
+    "start": "node_modules/http-server/bin/http-server -p 8081 --cors",
+    "build": "node_modules/grunt/bin/grunt"
+  },
+  "version": "1.0.0",
+  "description": "Frontend.",
+  "main": "index.js",
+  "directories": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jadaradix/capco-frontend"
+  },
+  "author": "James Garner <j@jada.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jadaradix/capco-frontend/issues"
+  },
+  "homepage": "https://github.com/jadaradix/capco-frontend",
+  "dependencies": {
+    "angular": "^1.5.6",
+    "angular-sanitize": "^1.5.6",
+    "async": "*",
+    "ueber": "jadaradix/ueber"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
+    "babelify": "^7.3.0",
+    "browserify": "^13.0.1",
+    "grunt": "^1.0.1",
+    "grunt-browserify": "^5.0.0",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-uglify": "^1.0.1",
+    "grunt-shell": "^1.3.0",
+    "uglify": "^0.1.5"
+  }
+}
