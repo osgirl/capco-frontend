@@ -12,7 +12,7 @@ const controller = function controller ($scope, $sce, backend) {
   $scope.matches = [];
 
   $scope.getProfile = function getProfile () {
-    backend.method(`${$scope.accessToken}/profile?name=${name}`, "get", null, (err, profile) => {
+    backend.method(`${$scope.accessToken}/profile?name=${$scope.name}`, "get", null, (err, profile) => {
       if (err) return;
       $scope.profile = profile;
       $scope.ui = "profile";
@@ -20,7 +20,7 @@ const controller = function controller ($scope, $sce, backend) {
   };
 
   $scope.getMatches = function getMatches () {
-    backend.method(`${$scope.accessToken}/matches`, "get", null, (err, matches) => {
+    backend.method(`${$scope.accessToken}-${$scope.name}/matches`, "get", null, (err, matches) => {
       if (err) return;
       $scope.matches = matches;
       $scope.ui = "matches";

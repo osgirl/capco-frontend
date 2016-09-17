@@ -10,6 +10,21 @@ body {
   padding: 0;
 }
 
+ul {
+  margin-left: 30px;
+  margin-bottom: 16px;
+}
+
+p {
+  margin-bottom: 8px;
+}
+
+img {
+  width: 100%;
+  margin-bottom: 16px;
+  display: block;
+}
+
 #logo {
   display: block;
   margin-bottom: 16px;
@@ -18,7 +33,7 @@ body {
 }
 
 #logo > img {
-  display: block;
+  margin: 0;
   width: 128px;
 }
 

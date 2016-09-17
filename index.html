@@ -30,6 +30,8 @@
       </section>
 
       <section ng-show="ui === 'profile'">
+        <p><strong>You are a {{profile.factors[0].name}}!</strong></p>
+        <img ng-src="images/profiles/{{profile.factors[0].name}}.jpg" alt="{{profile.factors[0].name}}">
         <p>Detailed breakdown:</p>
         <ul>
           <li ng-repeat="factor in profile.factors">{{factor.name}}: {{factor.percent}}%</li>
