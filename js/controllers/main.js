@@ -4,14 +4,28 @@ const ueber = require("ueber");
 
 const controller = function controller ($scope, $sce, backend) {
 
-  $scope.people = [
-    {
-      "name": "James Garner"
-    },
-    {
-      "name": "Jerry Chen"
-    }
-  ];
+  $scope.name = "";
+  $scope.accessToken = "";
+  $scope.ui = "accessToken";
+
+  $scope.profile = null;
+  $scope.matches = [];
+
+  $scope.getProfile = function getProfile () {
+    backend.method(`${$scope.accessToken}/profile?name=${name}`, "get", null, (err, profile) => {
+      if (err) return;
+      $scope.profile = profile;
+      $scope.ui = "profile";
+    });
+  };
+
+  $scope.getMatches = function getMatches () {
+    backend.method(`${$scope.accessToken}/matches`, "get", null, (err, matches) => {
+      if (err) return;
+      $scope.matches = matches;
+      $scope.ui = "matches";
+    });
+  };
 
 };
 

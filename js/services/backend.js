@@ -2,9 +2,10 @@
 
 const service = function service ($http) {
 
-  const url = window.location.protocol + "//" + window.location.hostname + ":8080";
+  const url = (window.location.protocol !== "file:" ? window.location.protocol : "http:") + "//" + (window.location.hostname.length > 0 ? window.location.hostname : "localhost") + ":8080";
 
   this.method = function method (slug, method, data, callback) {
+
     let promise = null;
     if (method === "get") {
       // get doesn't take a body

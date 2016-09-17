@@ -3,15 +3,50 @@
   <head>
     <meta charset="utf-8">
     <script src="js/index-browserified.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
     <link rel="stylesheet" href="css/core.css">
+    <title>Monzo Me</title>
   </head>
   <body ng-app="app">
-    <div ng-controller="mainController">
 
-      <ul>
-        <li ng-repeat="person in people">{{person.name}}</li>
-      </ul>
+    <a id="logo" href="/">
+      <img src="images/monzo-me.png" alt="Monzo Me">
+    </a>
 
-    </div>
+    <main ng-controller="mainController">
+
+      <section ng-show="ui === 'accessToken'">
+        <form ng-submit="getProfile()">
+          <!-- MONDO ACCESS TOKEN -->
+          <label for="getProfiles-field-mondo-access-token">Monzo Access Token:</label>
+          <input id="getProfiles-field-mondo-access-token" type="text" ng-model="accessToken" autofocus>
+          <!-- NAME -->
+          <label for="getProfiles-field-name">Your Name:</label>
+          <input id="getProfiles-field-name" type="text" ng-model="name">
+          <!-- LET'S GO -->
+          <input type="submit" value="Monzo Me">
+        </form>
+      </section>
+
+      <section ng-show="ui === 'profile'">
+        <p>Detailed breakdown:</p>
+        <ul>
+          <li ng-repeat="factor in profile.factors">{{factor.name}}: {{factor.percent}}%</li>
+        </ul>
+        <input type="submit" ng-click="getMatches()" value="See your Matches">
+      </section>
+
+      <section ng-show="ui === 'matches'">
+        <ul>
+          <li ng-repeat="match in matches">
+            <span>{{match.name}}</span>
+            <ul>
+              <li ng-repeat="factor in match.factors">{{factor.name}}: {{factor.percent}}%</li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+
+    </main>
   </body>
 </html>
